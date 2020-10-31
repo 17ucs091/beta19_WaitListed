@@ -20,9 +20,8 @@ const App = () => {
     document.onkeydown = function (e) {
       e = e || window.event; //Get event
       if (e.ctrlKey) {
-        // TODO: keyCode is deprecated, use something better
-        var c = e.which || e.keyCode; //Get key code
-        if ([83, 67, 86].includes(c)) {
+        var c = e.code; //Get key code
+        if (['KeyS', 'KeyC', 'KeyV'].includes(c)) {
           e.preventDefault();
           e.stopPropagation();
           setViolations([
