@@ -6,8 +6,10 @@
   background: white;
 }
 
-.center {
-  margin: 0 auto;
+.divStopIcon {
+  padding: 2px;
+  margin: 2px;
+  border: 2px blue;
 }
 .stopButton {
   margin: 0 auto;

@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
-import {
-  Paper,
-  Typography,
-  Avatar,
-  Box,
-  Button,
-  Grid
-} from '@material-ui/core';
+import { Paper, Button, Box, Grid } from '@material-ui/core';
 import './TestView.css';
 import Camera from '../Camera';
 import Voice from '../Voice';
+import StopIcon from '@material-ui/icons/Stop';
 import FullScreen from '@material-ui/icons/AspectRatio';
 
 const goFullScreen = () => {
@@ -31,37 +25,27 @@ const TestView = ({ violations }) => {
         direction="row"
         spacing={3}
         alignItems="center"
-        style={{ padding: '2%' }}
+        style={{ padding: '2%', height: '100vh' }}
       >
-        <Grid
-          item
-          xs={7}
-          style={{
-            height: '96vh'
-          }}
-        >
-          <Paper
+        <Grid item xs={7}>
+          <div
             style={{
-              display: 'flex',
               height: '60vh',
-              marginTop: '15vh',
-              alignItems: 'center',
               background: `rgb(${'240,240,250'})`
             }}
           >
             <Camera />
-          </Paper>
+          </div>
         </Grid>
         <Grid item xs>
           <Grid xs>
             <div
               style={{
-                height: '15vh',
+                height: '12vh',
                 marginBottom: '4%'
               }}
             >
               <Voice />
-              <FullScreen fontSize="large" onClick={goFullScreen} />
             </div>
           </Grid>
           <Grid item xs>
@@ -84,16 +68,21 @@ const TestView = ({ violations }) => {
               className="stopButton"
               style={{
                 height: '10vh',
-                marginTop: '4%'
+                padding: '10vh'
               }}
             >
-              <Button
-                variant="outlined"
-                color="primary"
-                style={{ width: '12vh', height: '6vh', fontSize: '3vh' }}
-              >
-                Stop
-              </Button>
+              <div style={{ border: 'black', margin: '2px' }}>
+                <Grid container xs>
+                  <Grid item xs>
+                    <Box border={1} borderColor="primary.main">
+                      <StopIcon fontSize="large" />
+                    </Box>
+                  </Grid>
+                  <Grid item xs>
+                    <FullScreen fontSize="large" onClick={goFullScreen} />
+                  </Grid>
+                </Grid>
+              </div>
             </div>
           </Grid>
         </Grid>
