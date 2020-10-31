@@ -10,15 +10,19 @@ const TestView = () => {
           padding: '2%'
         }}
       >
-        <Grid item sm style={{ paddingRight: '2%', height: '500px' }}>
+        <Grid item sm style={{ marginRight: '2%', width: '60%' }}>
           <Paper style={{ height: '80vh' }}>left Pane</Paper>
         </Grid>
-        <Grid comtainer sm>
+        <Grid item sm>
           <Grid sm>
-            <Paper style={{ height: '20vh' }}>right upper</Paper>
+            <Paper style={{ height: '15vh', marginBottom: '4%' }}>
+              right upper
+            </Paper>
           </Grid>
           <Grid item sm>
-            <Paper style={{ height: '50vh' }}>rigth bottom</Paper>
+            <Paper style={{ height: '50vh', marginTop: '4%' }}>
+              rigth bottom
+            </Paper>
           </Grid>
           <Grid item sm>
             <Button>Stop</Button>
