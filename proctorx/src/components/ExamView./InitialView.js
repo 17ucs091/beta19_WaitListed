@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const InitialView = () => {
+const InitialView = ({ testViewState }) => {
   const classes = useStyles();
 
   return (
@@ -34,6 +34,7 @@ const InitialView = () => {
           variant="outlined"
           color="primary"
           component="span"
+          onClick={() => testViewState(true)}
         >
           Attempt Now
         </Button>
