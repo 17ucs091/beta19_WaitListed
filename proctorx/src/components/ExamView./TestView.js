@@ -1,31 +1,71 @@
 import React, { Component } from 'react';
 import { Paper, Typography, Avatar, Button, Grid } from '@material-ui/core';
 import './TestView.css';
-const TestView = () => {
+import Camera from '../Camera';
+import Voice from '../Voice';
+
+const TestView = ({ violations }) => {
   return (
     <div className="backgroundView">
       <Grid
         container
+        className="center"
+        spacing={3}
         style={{
           padding: '2%'
         }}
       >
-        <Grid item sm style={{ marginRight: '2%', width: '60%' }}>
-          <Paper style={{ height: '80vh' }}>left Pane</Paper>
+        <Grid item xs={7}>
+          <Paper
+            style={{ height: '80vh', background: `rgb(${'240,240,250'})` }}
+          >
+            <Camera />
+          </Paper>
         </Grid>
-        <Grid item sm>
-          <Grid sm>
-            <Paper style={{ height: '15vh', marginBottom: '4%' }}>
-              right upper
+        <Grid item xs>
+          <Grid xs>
+            <Paper
+              style={{
+                height: '15vh',
+                marginBottom: '4%',
+                background: `rgb(${'240,240,250'})`
+              }}
+            >
+              <Voice />
             </Paper>
           </Grid>
-          <Grid item sm>
-            <Paper style={{ height: '50vh', marginTop: '4%' }}>
-              rigth bottom
+          <Grid item xs>
+            <Paper
+              style={{
+                height: '50vh',
+                marginTop: '4%',
+                background: `rgb(${'240,240,250'})`
+              }}
+            >
+              <ul>
+                {violations.map((violation, index) => (
+                  <li key={index}>{violation}</li>
+                ))}
+              </ul>
             </Paper>
           </Grid>
-          <Grid item sm>
-            <Button>Stop</Button>
+          <Grid item xs>
+            <div
+              className="stopButton"
+              style={{
+                height: '10vh',
+                marginTop: '4%',
+                background: `rgb(${'240,240,250'})`
+              }}
+            >
+              <Button
+                variant="outlined"
+                color="primary"
+                style={{ width: '12vh', height: '6vh', fontSize: '3vh' }}
+              >
+                Stop
+              </Button>
+            </div>
           </Grid>
         </Grid>
       </Grid>

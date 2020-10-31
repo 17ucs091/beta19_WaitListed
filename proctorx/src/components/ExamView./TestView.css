@@ -2,17 +2,16 @@
   width: 75%;
   margin: auto;
   height: 100vh;
+  display: block;
+  text-align: center;
   background: white;
 }
 
-.cameraView {
+.center {
+  margin: 0 auto;
 }
-
-.voiceView {
-}
-
-.logView {
-}
-
-.stopbutton {
+.stopButton {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
 }
