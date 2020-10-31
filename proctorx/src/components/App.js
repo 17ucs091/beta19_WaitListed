@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 
-import Voice from './Voice';
-import Camera from './Camera';
-
+import InitialView from './ExamView./InitialView';
+import TestView from './ExamView./TestView';
 const useStyles = makeStyles((theme) => ({
   fullview: {
     height: '100vh'
@@ -15,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
 const App = () => {
   const classes = useStyles();
   const [violations, setViolations] = useState([]);
+  const [testView, setTestView] = useState(false);
 
   useEffect(() => {
     // Prevent Ctrl+S, Ctrl+C & Ctrl+V
@@ -42,24 +42,15 @@ const App = () => {
   });
 
   return (
-    <Grid container>
-      <Grid item xs={6}>
-        <Paper className={classes.fullview}>
-          <Camera />
-        </Paper>
-      </Grid>
-      <Grid item xs={6}>
-        <Paper className={classes.fullview}>
-          <Voice />
-          {/* TODO : there would be logging section here */}
-          <ul>
-            {violations.map((violation, index) => (
-              <li key={index}>{violation}</li>
-            ))}
-          </ul>
-        </Paper>
-      </Grid>
-    </Grid>
+    <Fragment>
+      {!testView ? (
+        <InitialView testViewState={setTestView} />
+      ) : (
+        <div style={{ background: `rgb(${'240,240,250'})` }}>
+          <TestView violations={violations} />
+        </div>
+      )}
+    </Fragment>
   );
 };
 
