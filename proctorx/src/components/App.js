@@ -3,8 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 
-import InitialView from './ExamView./InitialView';
-import TestView from './ExamView./TestView';
+import InitialView from './ExamView/InitialView';
+import TestView from './ExamView/TestView';
 const useStyles = makeStyles((theme) => ({
   fullview: {
     height: '100vh'
@@ -37,6 +37,17 @@ const App = () => {
     document.addEventListener('visibilitychange', (event) => {
       if (document.visibilityState !== 'visible') {
         setViolations([...violations, 'Violation : Tab switching not allowed']);
+      }
+    });
+
+    // full screen detection - chrome
+    document.addEventListener('webkitfullscreenchange', function () {
+      // full screen disabled
+      if (!document.fullscreenElement) {
+        setViolations([
+          ...violations,
+          'Violation : Exiting Full Screen not allowed'
+        ]);
       }
     });
   });
