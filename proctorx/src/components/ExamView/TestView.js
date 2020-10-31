@@ -22,7 +22,7 @@ const goFullScreen = () => {
   requestMethod.call(element);
 };
 
-const TestView = ({ violations }) => {
+const TestView = ({ violations, setViolations }) => {
   return (
     <div className="backgroundView">
       <Grid
@@ -60,7 +60,10 @@ const TestView = ({ violations }) => {
                 marginBottom: '4%'
               }}
             >
-              <Voice />
+              <Voice
+                violations={violations}
+                logSpeechViolations={setViolations}
+              />
               <FullScreen fontSize="large" onClick={goFullScreen} />
             </div>
           </Grid>
