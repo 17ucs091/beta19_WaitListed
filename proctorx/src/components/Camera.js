@@ -3,13 +3,13 @@ import * as tf from '@tensorflow/tfjs';
 
 const Camera = () => {
   const [proctorAi, setProctorAi] = useState(null);
-  const [stream, setStream] = useState(null);
-  const videoElement = useRef(null);
+  const [cameraStream, setCameraStream] = useState(null);
+  const videoRef = useRef(null);
 
   useEffect(() => {
-    async function loadCam() {
+    async function enableStream() {
       try {
-        const cameraStream = await navigator.mediaDevices.getUserMedia({
+        const stream = await navigator.mediaDevices.getUserMedia({
           video: {
             facingMode: 'user'
           },
@@ -17,14 +17,14 @@ const Camera = () => {
         });
         const model = await tf.loadGraphModel('/models/model.json');
         await setProctorAi(model);
-        await setStream(cameraStream);
-        videoElement.current.srcObject = cameraStream;
+        await setCameraStream(stream);
+        videoRef.current.srcObject = stream;
       } catch (err) {
         console.log(err);
       }
     }
 
-    loadCam();
+    enableStream();
   }, []);
 
   return (
@@ -34,7 +34,7 @@ const Camera = () => {
         autoPlay
         playsInline
         muted
-        ref={videoElement}
+        ref={videoRef}
         width="600"
         height="500"
       />
