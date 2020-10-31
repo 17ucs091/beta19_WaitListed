@@ -3,6 +3,17 @@ import { Paper, Typography, Avatar, Button, Grid } from '@material-ui/core';
 import './TestView.css';
 import Camera from '../Camera';
 import Voice from '../Voice';
+import FullScreen from '@material-ui/icons/AspectRatio';
+
+const goFullScreen = () => {
+  const element = document.body;
+  var requestMethod =
+    element.requestFullScreen ||
+    element.webkitRequestFullScreen ||
+    element.mozRequestFullScreen ||
+    element.msRequestFullScreen;
+  requestMethod.call(element);
+};
 
 const TestView = ({ violations }) => {
   return (
@@ -32,6 +43,7 @@ const TestView = ({ violations }) => {
               }}
             >
               <Voice />
+              <FullScreen fontSize="large" onClick={goFullScreen} />
             </Paper>
           </Grid>
           <Grid item xs>

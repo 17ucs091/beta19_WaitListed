@@ -40,6 +40,17 @@ const App = () => {
         setViolations([...violations, 'Violation : Tab switching not allowed']);
       }
     });
+
+    // full screen detection - chrome
+    document.addEventListener('webkitfullscreenchange', function () {
+      // full screen disabled
+      if (!document.fullscreenElement) {
+        setViolations([
+          ...violations,
+          'Violation : Exiting Full Screen not allowed'
+        ]);
+      }
+    });
   });
 
   return (

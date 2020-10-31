@@ -10,6 +10,16 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+const goFullScreen = () => {
+  const element = document.body;
+  var requestMethod =
+    element.requestFullScreen ||
+    element.webkitRequestFullScreen ||
+    element.mozRequestFullScreen ||
+    element.msRequestFullScreen;
+  requestMethod.call(element);
+};
+
 const InitialView = ({ testViewState }) => {
   const classes = useStyles();
 
@@ -34,7 +44,10 @@ const InitialView = ({ testViewState }) => {
           variant="outlined"
           color="primary"
           component="span"
-          onClick={() => testViewState(true)}
+          onClick={() => {
+            testViewState(true);
+            goFullScreen();
+          }}
         >
           Attempt Now
         </Button>
