@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -13,27 +13,30 @@ const useStyles = makeStyles((theme) => ({
 
 const App = () => {
   const classes = useStyles();
+  const [violations, setViolations] = useState([]);
 
   useEffect(() => {
     // Prevent Ctrl+S, Ctrl+C & Ctrl+V
     document.onkeydown = function (e) {
       e = e || window.event; //Get event
       if (e.ctrlKey) {
+        // TODO: keyCode is deprecated, use something better
         var c = e.which || e.keyCode; //Get key code
         if ([83, 67, 86].includes(c)) {
-          console.log('Ctrl + S, Ctrl+C, Ctrl+V not allowed');
           e.preventDefault();
           e.stopPropagation();
+          setViolations([
+            ...violations,
+            'Violation : Ctrl + S, Ctrl+C, Ctrl+V not allowed'
+          ]);
         }
       }
     };
 
     // detect tab switching
     document.addEventListener('visibilitychange', (event) => {
-      if (document.visibilityState === 'visible') {
-        console.log('tab is active');
-      } else {
-        console.log('tab is inactive');
+      if (document.visibilityState !== 'visible') {
+        setViolations([...violations, 'Violation : Tab switching not allowed']);
       }
     });
   });
@@ -46,6 +49,12 @@ const App = () => {
       <Grid item xs={6}>
         <Paper className={classes.fullview}>
           <Voice />
+          {/* TODO : there would be logging section here */}
+          <ul>
+            {violations.map((violation, index) => (
+              <li key={index}>{violation}</li>
+            ))}
+          </ul>
         </Paper>
       </Grid>
     </Grid>
