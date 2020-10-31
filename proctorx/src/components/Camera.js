@@ -21,7 +21,7 @@ const Camera = () => {
         await setCameraStream(stream);
         videoRef.current.srcObject = stream;
 
-        // predictFrame();
+        predictFrame();
       } catch (err) {
         console.log(err);
       }
@@ -31,12 +31,14 @@ const Camera = () => {
   }, []);
 
   const predictFrame = async () => {
-    console.log(videoRef.current.srcObject);
-    const predictions = await proctorAi.predict(videoRef);
-    console.log(predictions);
-
-    // recursive call
-    predictFrame();
+    const webcam = await tf.data.webcam(null,{resizeWidth:224,resizeHeight:224});
+    while(true){
+      const img = await webcam.capture();
+      const result = await proctorAi.classify(img);
+      console.log(result);
+      img.dispose();
+      await tf.nextFrame();
+    }
   };
 
   return (
@@ -50,7 +52,6 @@ const Camera = () => {
         width="600"
         height="500"
       />
-      <button onClick={predictFrame}>Predict</button>
     </div>
   );
 };
