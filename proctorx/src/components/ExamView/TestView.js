@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Paper, Button, Box, Grid } from '@material-ui/core';
+import { Paper, Button, Box, Grid, Typography } from '@material-ui/core';
 import './TestView.css';
 import Camera from '../Camera';
 import Voice from '../Voice';
@@ -42,7 +42,6 @@ const TestView = ({ violations, setViolations }) => {
             <div
               style={{
                 height: '12vh',
-                marginTop: '4%',
                 marginBottom: '4%'
               }}
             >
@@ -56,15 +55,29 @@ const TestView = ({ violations, setViolations }) => {
             <Paper
               style={{
                 height: '50vh',
-                marginTop: '4%',
-                background: `rgb(${'240,240,250'})`
+                background: `rgb(${'0,0,0'})`,
+                padding: '2vh'
               }}
             >
-              <ul>
+              <Typography
+                style={{ color: 'green', padding: '5px' }}
+                variant="h4"
+              >
+                Logs
+              </Typography>
+              <div
+                style={{
+                  overflow: 'auto',
+                  marginTop: '2px',
+                  height: '90%'
+                }}
+              >
                 {violations.map((violation, index) => (
-                  <li key={index}>{violation}</li>
+                  <Typography align="Left" key={index} className="violations">
+                    {'>'} {violation}
+                  </Typography>
                 ))}
-              </ul>
+              </div>
             </Paper>
           </Grid>
           <Grid item xs>
@@ -72,16 +85,11 @@ const TestView = ({ violations, setViolations }) => {
               className="stopButton"
               style={{
                 height: '10vh',
-                padding: '10vh'
+                padding: '4vh'
               }}
             >
               <div>
                 <Grid container xs>
-                  <Grid item xs>
-                    <Button variant="outlined" size="large" color="primary">
-                      FINISH
-                    </Button>
-                  </Grid>
                   <Grid item xs>
                     <Box
                       display="flex"
@@ -91,6 +99,11 @@ const TestView = ({ violations, setViolations }) => {
                     >
                       <FullScreen fontSize="large" onClick={goFullScreen} />
                     </Box>
+                  </Grid>
+                  <Grid item xs>
+                    <Button variant="outlined" size="large" color="primary">
+                      FINISH
+                    </Button>
                   </Grid>
                 </Grid>
               </div>

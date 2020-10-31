@@ -47,7 +47,7 @@ const App = () => {
       if (!document.fullscreenElement) {
         setViolations([
           ...violations,
-          'Violation : Exiting Full Screen not allowed'
+          'violation : Exiting Full Screen not allowed'
         ]);
       }
     });

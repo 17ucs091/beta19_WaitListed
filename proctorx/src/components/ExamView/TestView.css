@@ -16,3 +16,7 @@
   display: block;
   text-align: center;
 }
+
+.violations {
+  color: red;
+}
