@@ -15,11 +15,10 @@ const Camera = () => {
           },
           audio: false
         });
-
         const model = await tf.loadGraphModel('/models/model.json');
         await setProctorAi(model);
         await setStream(cameraStream);
-        videoElement.current.src = cameraStream;
+        videoElement.current.srcObject = cameraStream;
       } catch (err) {
         console.log(err);
       }
