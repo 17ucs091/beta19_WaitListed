@@ -59,7 +59,7 @@ const App = () => {
         <InitialView testViewState={setTestView} />
       ) : (
         <div style={{ background: `rgb(${'240,240,250'})` }}>
-          <TestView violations={violations} />
+          <TestView violations={violations} setViolations={setViolations} />
         </div>
       )}
     </Fragment>

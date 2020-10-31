@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SpeechRecognition, {
   useSpeechRecognition
 } from 'react-speech-recognition';
 import MicIcon from '@material-ui/icons/Mic';
 import MicOffIcon from '@material-ui/icons/MicOff';
 
-const Voice = () => {
+const Voice = ({ violations, logSpeechViolations }) => {
   const { transcript, resetTranscript } = useSpeechRecognition();
   const [isListening, setIsListening] = useState(false);
+
+  useEffect(() => {
+    if (transcript.length > 10) {
+      logSpeechViolations([
+        ...violations,
+        'Violation : Speaking not allowed during exam'
+      ]);
+    }
+  }, [transcript]);
 
   return (
     <div>
@@ -17,6 +26,7 @@ const Voice = () => {
           onClick={() => {
             setIsListening(false);
             SpeechRecognition.stopListening();
+            resetTranscript();
           }}
         />
       ) : (
@@ -24,11 +34,11 @@ const Voice = () => {
           fontSize="large"
           onClick={() => {
             setIsListening(true);
-            SpeechRecognition.startListening();
+            SpeechRecognition.startListening({ continuous: true });
           }}
         />
       )}
-      <p>{transcript}</p>
+      {/* <p>{transcript}</p> */}
     </div>
   );
 };
