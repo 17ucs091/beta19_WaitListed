@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 
 import Voice from './Voice';
+import Camera from './Camera';
 
 const useStyles = makeStyles((theme) => ({
   fullview: {
@@ -43,7 +44,9 @@ const App = () => {
   return (
     <Grid container>
       <Grid item xs={6}>
-        <Paper className={classes.fullview}>xs = 6</Paper>
+        <Paper className={classes.fullview}>
+          <Camera />
+        </Paper>
       </Grid>
       <Grid item xs={6}>
         <Paper className={classes.fullview}>
