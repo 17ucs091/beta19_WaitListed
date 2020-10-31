@@ -17,6 +17,20 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
     />
+    <!-- Prevent Ctrl+S, Ctrl+C & Ctrl+V -->
+    <script>
+      document.onkeydown = function (e) {
+        e = e || window.event; //Get event
+        if (e.ctrlKey) {
+          var c = e.which || e.keyCode; //Get key code
+          if([83, 67, 86].includes(c)){
+            console.log("Ctrl + S, Ctrl+C, Ctrl+V not allowed");
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        }
+      };
+    </script>
     <title>ProctorX</title>
   </head>
   <body>
