@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { Paper, Typography, Avatar, Button, Grid } from '@material-ui/core';
+import {
+  Paper,
+  Typography,
+  Avatar,
+  Box,
+  Button,
+  Grid
+} from '@material-ui/core';
 import './TestView.css';
 import Camera from '../Camera';
 import Voice from '../Voice';
@@ -21,30 +28,41 @@ const TestView = ({ violations }) => {
       <Grid
         container
         className="center"
+        direction="row"
         spacing={3}
-        style={{
-          padding: '2%'
-        }}
+        alignItems="center"
+        style={{ padding: '2%' }}
       >
-        <Grid item xs={7}>
+        <Grid
+          item
+          xs={7}
+          style={{
+            height: '96vh'
+          }}
+        >
           <Paper
-            style={{ height: '80vh', background: `rgb(${'240,240,250'})` }}
+            style={{
+              display: 'flex',
+              height: '60vh',
+              marginTop: '15vh',
+              alignItems: 'center',
+              background: `rgb(${'240,240,250'})`
+            }}
           >
             <Camera />
           </Paper>
         </Grid>
         <Grid item xs>
           <Grid xs>
-            <Paper
+            <div
               style={{
                 height: '15vh',
-                marginBottom: '4%',
-                background: `rgb(${'240,240,250'})`
+                marginBottom: '4%'
               }}
             >
               <Voice />
               <FullScreen fontSize="large" onClick={goFullScreen} />
-            </Paper>
+            </div>
           </Grid>
           <Grid item xs>
             <Paper
@@ -66,8 +84,7 @@ const TestView = ({ violations }) => {
               className="stopButton"
               style={{
                 height: '10vh',
-                marginTop: '4%',
-                background: `rgb(${'240,240,250'})`
+                marginTop: '4%'
               }}
             >
               <Button
