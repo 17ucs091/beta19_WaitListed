@@ -31,7 +31,7 @@ const TestView = ({ violations, setViolations }) => {
           <div
             style={{
               height: '60vh',
-              background: `rgb(${'240,240,250'})`
+              background: 'rgb(240,240,250)'
             }}
           >
             <Camera />
@@ -42,6 +42,7 @@ const TestView = ({ violations, setViolations }) => {
             <div
               style={{
                 height: '12vh',
+                marginTop: '4%',
                 marginBottom: '4%'
               }}
             >
@@ -49,7 +50,6 @@ const TestView = ({ violations, setViolations }) => {
                 violations={violations}
                 logSpeechViolations={setViolations}
               />
-              <FullScreen fontSize="large" onClick={goFullScreen} />
             </div>
           </Grid>
           <Grid item xs>
@@ -75,15 +75,22 @@ const TestView = ({ violations, setViolations }) => {
                 padding: '10vh'
               }}
             >
-              <div style={{ border: 'black', margin: '2px' }}>
+              <div>
                 <Grid container xs>
                   <Grid item xs>
-                    <Box border={1} borderColor="primary.main">
-                      <StopIcon fontSize="large" />
-                    </Box>
+                    <Button variant="outlined" size="large" color="primary">
+                      FINISH
+                    </Button>
                   </Grid>
                   <Grid item xs>
-                    <FullScreen fontSize="large" onClick={goFullScreen} />
+                    <Box
+                      display="flex"
+                      alignItems="center"
+                      justifyContent="center"
+                      mt={0.5}
+                    >
+                      <FullScreen fontSize="large" onClick={goFullScreen} />
+                    </Box>
                   </Grid>
                 </Grid>
               </div>
