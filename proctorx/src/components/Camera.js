@@ -16,9 +16,12 @@ const Camera = () => {
           audio: false
         });
         const model = await tf.loadGraphModel('/models/model.json');
+        console.log(model);
         await setProctorAi(model);
         await setCameraStream(stream);
         videoRef.current.srcObject = stream;
+
+        // predictFrame();
       } catch (err) {
         console.log(err);
       }
@@ -26,6 +29,15 @@ const Camera = () => {
 
     enableStream();
   }, []);
+
+  const predictFrame = async () => {
+    console.log(videoRef.current.srcObject);
+    const predictions = await proctorAi.predict(videoRef);
+    console.log(predictions);
+
+    // recursive call
+    predictFrame();
+  };
 
   return (
     <div>
@@ -38,6 +50,7 @@ const Camera = () => {
         width="600"
         height="500"
       />
+      <button onClick={predictFrame}>Predict</button>
     </div>
   );
 };
