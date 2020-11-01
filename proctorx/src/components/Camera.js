@@ -33,23 +33,24 @@ const Camera = () => {
   }, []);
 
   const predictFrame = async () => {
-    const webcam = await tf.data.webcam(null, {
-      resizeWidth: 224,
-      resizeHeight: 224
-    });
+    const webcam = await tf.data.webcam(videoRef.current);
+    
     while (true) {
       let img = await webcam.capture();
-      img = tf.cast(img, 'DT_FLOAT');
-      img = tf.expandDims(img);
+      img = img.toFloat().div(tf.scalar(255));
+      //console.log(img.print());
+      // img = tf.browser.fromPixels({data:img,width:224,height:224});
+      //img = tf.cast(img, 'float32');
+      //img = tf.expandDims(img);
 
-      // img = await img.array();
-      // console.log(img);
-      // img = tf.tensor4d(img, [1, 224, 224, 3], 'float32');
+      
+      //console.log(img);
+      let arr = Float32Array.from([[[[1,2,3],[1,2,1]]]]);
+      //arr = tf.tensor4d(arr, [1, 224, 224, 3], 'float32');
       // console.log(await img.array());
       // img.print();
       // console.log(model);
-      const result = await model.predict(img);
-      console.log(result);
+      //const result = await model.predict(arr);
       img.dispose();
       await tf.nextFrame();
     }
