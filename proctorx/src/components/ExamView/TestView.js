@@ -101,7 +101,7 @@ const TestView = ({ violations, setViolations,testViewState}) => {
                     </Box>
                   </Grid>
                   <Grid item xs>
-                    <Button variant="outlined" size="large" color="primary" onClick={()=>testViewState(false)}>
+                    <Button variant="outlined" size="large" color="primary" onClick={()=>{testViewState(false);setViolations([]);}}>
                       FINISH
                     </Button>
                   </Grid>
