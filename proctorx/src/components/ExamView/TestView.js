@@ -16,7 +16,7 @@ const goFullScreen = () => {
   requestMethod.call(element);
 };
 
-const TestView = ({ violations, setViolations }) => {
+const TestView = ({ violations, setViolations,testViewState}) => {
   return (
     <div className="backgroundView">
       <Grid
@@ -101,7 +101,7 @@ const TestView = ({ violations, setViolations }) => {
                     </Box>
                   </Grid>
                   <Grid item xs>
-                    <Button variant="outlined" size="large" color="primary">
+                    <Button variant="outlined" size="large" color="primary" onClick={()=>testViewState(false)}>
                       FINISH
                     </Button>
                   </Grid>
