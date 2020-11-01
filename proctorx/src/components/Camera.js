@@ -1,3 +1,4 @@
+//This component loads tf js model and infrences video stream from it 
 import React, { useState, useEffect, useRef } from 'react';
 import * as tf from '@tensorflow/tfjs';
 
