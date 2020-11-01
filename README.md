@@ -32,32 +32,30 @@ Assumptions :
 webcam/mic access
 We are representing how we are able to track all the violations by the user. Instead of closing the test platform, we are logging all the unfair activities as logs
 
-Features
-Full Screen Mode [Done]
-Violation as soon as full screen mode is closed
- click on this icon to turn back to full screen mode
-Tab Switching [Done]
-Detect the tab switch so that no user is able view/cheat from any other tab on the browser
-Window Switching [Done]
-You cannot minimise the current browser window to cheat from some other application
-Ctrl + S, Ctrl+C, Ctrl+V not allowed [Done]
-You cannot copy or paste the answers
-You cannot save the examination page
-No system clipboard access[Done]
-Since you can’t use the copy and paste function, you have no access to the system clipboard
-No screenshots [Done]
-Screenshots are not controlled by web browser but by the OS, hence user can click the screenshots but can’t access them neither on the same device nor any other connected ones
-For same device : You can’t switch tabs/window
-For connected device : You can’t look away from the current exam session, which is ensured by camera tracking your eye movement
-Violation Logging [Done]
-Instead of closing the test platform, we are logging all the unfair activities as logs
-Voice Recognition	
-We would keep a check that the candidate mustn’t speak
-[AN]Automatic question answer generation [Second Thought]	
-[AN]Eye movement using open cv js	[Done]
-Interruption limitation [Done]										
-[AN]Machine learning model - phone recognition,copy recognition etc.  tensorflow js [Done]
-[AN]Multiple cameras [Done]
+**Features**
+1. Full Screen Mode [Done] <br>
+Violation as soon as full screen mode is closed click on this icon to turn back to full screen mode <br>
+2. Tab Switching [Done]<br>
+3. Detect the tab switch so that no user is able view/cheat from any other tab on the browser<br>
+4. Window Switching [Done]<br>
+5. You cannot minimise the current browser window to cheat from some other application<br>
+Ctrl + S, Ctrl+C, Ctrl+V not allowed [Done]<br>
+6. You cannot copy or paste the answers<br>
+7. You cannot save the examination page<br>
+8. No system clipboard access[Done]<br>
+9. Since you can’t use the copy and paste function, you have no access to the system clipboard<br>
+10. No screenshots [Done]<br>
+11. Screenshots are not controlled by web browser but by the OS, hence user can click the screenshots but can’t access them neither on the same device nor any other connected ones<br>
+12. For same device : You can’t switch tabs/window<br>
+13. For connected device : You can’t look away from the current exam session, which is ensured by camera tracking your eye movement<br>
+14. Violation Logging [Done]<br>
+15. Instead of closing the test platform, we are logging all the unfair activities as logs<br>
+16. Voice Recognition	 We would keep a check that the candidate mustn’t speak [Done]<br>
+17. [AN]Automatic question answer generation [Second Thought]	<br>
+18. [AN]Eye movement using open cv js	[Done]<br>
+19. Interruption limitation [Done]	<br>									
+20. [AN]Machine learning model - phone recognition,copy recognition etc.  tensorflow js [Done]<br>
+21. [AN]Multiple cameras [Done]<br>
 
 **[AN] : Anubhav Natani
 
