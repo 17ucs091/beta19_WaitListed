@@ -41,12 +41,12 @@ const Camera = () => {
       img = img.toFloat().div(tf.scalar(255));
       //console.log(img.print());
       // img = tf.browser.fromPixels({data:img,width:224,height:224});
-      //img = tf.cast(img, 'float32');
-      //img = tf.expandDims(img);
+      img = tf.cast(img, 'float32');
+      img = tf.expandDims(img);
 
       
       //console.log(img);
-      let arr = Float32Array.from([[[[1,2,3],[1,2,1]]]]);
+      //let arr = Float32Array.from([[[[1,2,3],[1,2,1]]]]);
       //arr = tf.tensor4d(arr, [1, 224, 224, 3], 'float32');
       // console.log(await img.array());
       // img.print();
