@@ -17,11 +17,14 @@ Collects a multimedia dataset of images of student from both the cameras during 
 
 # Tech Stack
 **Tensorflowjs** : all the detection for any violation is done on the client side and hence we are easily able to analyse the movements and activities of the candidates
+
 **ReactJS & MaterialUI**: We have used it to create a very simple and easy to use UI of the application
+
 **Note** : We have built the UI not for what the candidate would see, but to capture all the activities of the candidate. UI can be changed anytime for a candidate to give the exam
+
 **Web Speech API** : We have done tracking of the candidate’s voice while he is giving the test, so he is not talking to someone
 
-Progress and Features
+# Progress and Features
 
 Team : beta19
 
