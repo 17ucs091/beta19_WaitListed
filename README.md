@@ -14,3 +14,51 @@ This project has the following features:
 
 Proposes an automated online exam proctoring system with visual and audio sensors for the purpose of detecting cheating.
 Collects a multimedia dataset of images of student from both the cameras during exams and also the dataset of anomalous behaviours of student.
+
+# Tech Stack
+**Tensorflowjs** : all the detection for any violation is done on the client side and hence we are easily able to analyse the movements and activities of the candidates
+**ReactJS & MaterialUI**: We have used it to create a very simple and easy to use UI of the application
+**Note** : We have built the UI not for what the candidate would see, but to capture all the activities of the candidate. UI can be changed anytime for a candidate to give the exam
+**Web Speech API** : We have done tracking of the candidate’s voice while he is giving the test, so he is not talking to someone
+
+Progress and Features
+
+Team : beta19
+
+A prototype to proctor candidates on online tests or examinations
+Product : proctor-x
+
+Assumptions : 
+webcam/mic access
+We are representing how we are able to track all the violations by the user. Instead of closing the test platform, we are logging all the unfair activities as logs
+
+Features
+Full Screen Mode [Done]
+Violation as soon as full screen mode is closed
+ click on this icon to turn back to full screen mode
+Tab Switching [Done]
+Detect the tab switch so that no user is able view/cheat from any other tab on the browser
+Window Switching [Done]
+You cannot minimise the current browser window to cheat from some other application
+Ctrl + S, Ctrl+C, Ctrl+V not allowed [Done]
+You cannot copy or paste the answers
+You cannot save the examination page
+No system clipboard access[Done]
+Since you can’t use the copy and paste function, you have no access to the system clipboard
+No screenshots [Done]
+Screenshots are not controlled by web browser but by the OS, hence user can click the screenshots but can’t access them neither on the same device nor any other connected ones
+For same device : You can’t switch tabs/window
+For connected device : You can’t look away from the current exam session, which is ensured by camera tracking your eye movement
+Violation Logging [Done]
+Instead of closing the test platform, we are logging all the unfair activities as logs
+Voice Recognition	
+We would keep a check that the candidate mustn’t speak
+[AN]Automatic question answer generation [Second Thought]	
+[AN]Eye movement using open cv js	[Done]
+Interruption limitation [Done]										
+[AN]Machine learning model - phone recognition,copy recognition etc.  tensorflow js [Done]
+[AN]Multiple cameras [Done]
+
+**[AN] : Anubhav Natani
+
+
